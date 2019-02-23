@@ -4,7 +4,7 @@ Bare theme. This theme is intended as a starting point for future projects. It s
 
 ## Installation
 
-Clone and run `npm install`.
+Clone or download, rename the theme folder and change the theme name in `styles.css` then run `npm install`.
 
 ## Prerequisites
 
