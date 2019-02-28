@@ -1,5 +1,7 @@
 <?php
 
+// Quite a lot of this file strips WordPress generated crap from the header
+
 // Set production_env to true or false
 // If true query strings are stripped from JS and CSS asset files
 $production_env = false;
@@ -39,7 +41,7 @@ if ( ! isset( $content_width ) ) {
   $content_width = '100%';
 }
 
-// remove wp version param from any enqueued scripts
+// remove wp version param from any enqueued scripts and styles
 if ( $production_env == true ) {
   function bare_remove_wp_ver_css_js( $src ) {
       if ( strpos( $src, 'ver=' ) )
@@ -60,8 +62,8 @@ add_theme_support( 'title-tag' );
 
 // Custom Logo
 add_theme_support( 'custom-logo', array(
-  'height'      => 100,
-  'width'       => 400,
+  'height'      => 250,
+  'width'       => 500,
   'flex-height' => true,
   'flex-width'  => true,
   'header-text' => array( 'site-title', 'site-description' ),
