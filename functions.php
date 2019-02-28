@@ -11,6 +11,9 @@ function bare_setup() {
 	// Theme assets
 	require_once 'lib/assets.php';
 
+	// Theme custom post types
+	require_once 'lib/post-types.php';
+
 	// Theme custom pagination
 	require_once 'lib/pagination.php';
 

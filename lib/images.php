@@ -3,6 +3,7 @@
   // Post thumbnail and other image related stuff
   if (function_exists( 'add_theme_support' )) {
     add_theme_support( 'post-thumbnails' );
+    add_image_size( 'full-width', 1920, 1080, false );
     add_image_size( 'open-graph-image', 1200, 1200, true );
     add_image_size( 'twitter-summary-card', 600, 600, true );
     add_image_size( 'twitter-summary-large-image-card', 1200, 675, true );
