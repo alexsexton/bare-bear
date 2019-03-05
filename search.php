@@ -26,6 +26,8 @@
       <?php get_template_part('partials/article-list-item'); ?>
 
     <?php endwhile; endif;?>
+
+    <?php get_template_part('partials/pagination') ?>
   </section>
 </main>
 
