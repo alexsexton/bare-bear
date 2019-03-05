@@ -9,15 +9,15 @@
 * - from https://gist.github.com/mtx-z/f95af6cc6fb562eb1a1540ca715ed928
 *
 * USAGE:
-*     <?php echo bare_pagination(); ?> //uses global $wp_query
+*     <?php echo _bare_pagination(); ?> //uses global $wp_query
 * or with custom WP_Query():
 *     <?php
 *      $query = new \WP_Query($args);
 *       ... while(have_posts()), $query->posts stuff ...
-*       echo bare_pagination($query);
+*       echo _bare_pagination($query);
 *     ?>
 */
-function bare_pagination( \WP_Query $wp_query = null, $echo = true ) {
+function _bare_pagination( \WP_Query $wp_query = null, $echo = true ) {
 
   if ( null === $wp_query ) {
     global $wp_query;

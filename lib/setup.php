@@ -43,17 +43,17 @@ if ( ! isset( $content_width ) ) {
 
 // remove wp version param from any enqueued scripts and styles
 if ( $production_env == true ) {
-  function bare_remove_wp_ver_css_js( $src ) {
+  function _bare_remove_wp_ver_css_js( $src ) {
       if ( strpos( $src, 'ver=' ) )
           $src = remove_query_arg( 'ver', $src );
       return $src;
   }
-  add_filter( 'style_loader_src', 'bare_remove_wp_ver_css_js', 9999 );
-  add_filter( 'script_loader_src', 'bare_remove_wp_ver_css_js', 9999 );
+  add_filter( 'style_loader_src', '_bare_remove_wp_ver_css_js', 9999 );
+  add_filter( 'script_loader_src', '_bare_remove_wp_ver_css_js', 9999 );
 }
 
 // Set the text domain
-load_theme_textdomain( 'bare', get_template_directory() . '/languages' );
+load_theme_textdomain( '_bare', get_template_directory() . '/languages' );
 
 // Add theme support
 add_theme_support( 'html5' );
@@ -70,35 +70,35 @@ add_theme_support( 'custom-logo', array(
 ));
 
 // Remove the additional CSS section
-function bare_remove_css_section( $wp_customize ) {
+function _bare_remove_css_section( $wp_customize ) {
 	$wp_customize->remove_section( 'custom_css' );
 }
-add_action( 'customize_register', 'bare_remove_css_section', 15 );
+add_action( 'customize_register', '_bare_remove_css_section', 15 );
 
 // Simple function to remove the [...] from excerpt and replace with a 'Read more' link.
-function bare_excerpt_more($more) {
+function _bare_excerpt_more($more) {
   global $post;
-  return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'bare' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more', 'bare' ) .'</a>';
+  return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', '_bare' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more', '_bare' ) .'</a>';
 }
 
-add_filter( 'excerpt_more', 'bare_excerpt_more' );
+add_filter( 'excerpt_more', '_bare_excerpt_more' );
 
 // Custom excerpt length - uncomment if needed
-// function bare_custom_excerpt_length( $length ) {
+// function _bare_custom_excerpt_length( $length ) {
 // 	return 21;
 // }
-// add_filter( 'excerpt_length', 'bare_custom_excerpt_length', 999 );
+// add_filter( 'excerpt_length', '_bare_custom_excerpt_length', 999 );
 
 // Disable tags - uncomment if needed
 
-// function bare_unregister_tags() {
+// function _bare_unregister_tags() {
 //     unregister_taxonomy_for_object_type( 'post_tag', 'post' );
 // }
-// add_action( 'init', 'bare_unregister_tags' );
+// add_action( 'init', '_bare_unregister_tags' );
 
 // Rename 'posts' to 'news' - uncomment if needed
 
-// function bare_change_post_label() {
+// function _bare_change_post_label() {
 //   global $menu;
 //   global $submenu;
 //   $menu[5][0] = 'News';
@@ -107,7 +107,7 @@ add_filter( 'excerpt_more', 'bare_excerpt_more' );
 //   $submenu['edit.php'][16][0] = 'News Tags';
 //   echo '';
 // }
-// function bare_change_post_object() {
+// function _bare_change_post_object() {
 //   global $wp_post_types;
 //   $labels =& $wp_post_types['post']->labels;
 //   $labels->name = 'News';
@@ -124,5 +124,5 @@ add_filter( 'excerpt_more', 'bare_excerpt_more' );
 //   $labels->menu_name = 'News';
 //   $labels->name_admin_bar = 'News';
 // }
-// add_action('admin_menu', 'bare_change_post_label');
-// add_action('init', 'bare_change_post_object');
+// add_action('admin_menu', '_bare_change_post_label');
+// add_action('init', '_bare_change_post_object');

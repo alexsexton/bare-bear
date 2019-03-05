@@ -1,6 +1,6 @@
 <?php
   // Load theme static assets
-  function bare_theme_scripts() {
+  function _bare_theme_scripts() {
     $cache_buster = date(zB);
 
     wp_deregister_script( 'jquery' );
@@ -19,4 +19,4 @@
 
     wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/static/main.js', array(), $cache_buster, true  );
   }
-  add_action( 'wp_enqueue_scripts', 'bare_theme_scripts' );
+  add_action( 'wp_enqueue_scripts', '_bare_theme_scripts' );

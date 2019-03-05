@@ -1,3 +1,3 @@
 <div class="pagination">
-  <?php echo bare_pagination(); ?>
+  <?php echo _bare_pagination(); ?>
 </div>

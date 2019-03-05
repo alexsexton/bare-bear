@@ -1,6 +1,6 @@
 <?php
-// Setup the bare theme.
-function bare_setup() {
+// Setup the _bare theme.
+function _bare_setup() {
 
 	// Theme setup
 	require_once 'lib/setup.php';
@@ -35,7 +35,7 @@ function bare_setup() {
 	);
 
 	// Fires after the theme setup.
-	do_action( 'bare_theme_setup' );
+	do_action( '_bare_theme_setup' );
 }
 
-add_action( 'after_setup_theme', 'bare_setup', 10, 0 );
+add_action( 'after_setup_theme', '_bare_setup', 10, 0 );
