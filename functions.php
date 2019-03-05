@@ -14,9 +14,6 @@ function _bare_setup() {
 	// Theme custom post types
 	require_once 'lib/post-types.php';
 
-	// Theme custom fields (ACF)
-	// require_once 'app/custom-fields.php';
-
 	// Theme custom pagination
 	require_once 'lib/pagination.php';
 
@@ -25,6 +22,9 @@ function _bare_setup() {
 
 	// Theme custom nav walker
 	require_once 'lib/menus.php';
+
+	// Theme custom fields (ACF)
+	// require_once 'app/custom-fields.php';
 
 	// Register menus
 	register_nav_menus(
