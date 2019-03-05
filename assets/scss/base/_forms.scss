@@ -16,20 +16,20 @@ textarea {
   margin: 0;
   outline: 0;
   transition: all 0.2s ease-in-out;
-  width: 50%;
+  width: 75%;
+  font-family: $font-family-sans;
+  font-size: $base-font-size;
   @media screen and (max-width: $small-screen) {
     width: 100%;
   }
 }
-
-
 
 textarea {
   resize: none;
 }
 
 // Buttons
-.button {
+.button, input[type="button"], input[type="submit"], input[type="reset"]  {
   -webkit-appearance:none;
   -moz-appearance:none;
   appearance:none;
@@ -37,10 +37,11 @@ textarea {
   border: 0;
   padding:$spacer / 2 $spacer ;
   background: $button;
-  font-size: $base-font-size;
   color: $light-grey;
   transition: all 0.2s ease-in-out;
   margin: 0 0 $spacer * 2 0;
+  font-family: $font-family-sans;
+  font-size: $base-font-size;
 }
 
 .button:hover {
@@ -58,7 +59,6 @@ textarea {
 }
 
 // Labels
-
 .form-group label, .form-group legend {
   display: block;
   padding: 0 0 $spacer /2 0;
@@ -94,7 +94,6 @@ textarea {
 }
 
 // Radios and Checboxes
-
 label.radio-group, label.checkbox-group {
   position: relative;
   background: scale-color($input-border, $lightness: 75%);
@@ -106,13 +105,11 @@ label.radio-group, label.checkbox-group {
 }
 
 .block-labels {
-
   label.radio-group, label.checkbox-group {
     float: left;
     display: block;
     clear: left;
   }
-
 }
 
 label.radio-group:hover, label.radio-group.selected,

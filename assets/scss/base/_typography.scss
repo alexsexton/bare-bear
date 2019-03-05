@@ -1,18 +1,6 @@
 // Fonts
-
-$font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-$font-family-serif: "Georgia", Times,Serif;
-$base-sans: $font-family-sans;
-$base-font-size: 1rem;
-$base-line-height: 1.4;
-$heading-line-height: 1.4;
-$small-font-size: 0.8rem;
-$small-screen-font-size: 0.8rem;
-$print-font-size: $small-screen-font-size;
-$measure: 44rem;
-
 html {
-  font-size: 100%; // 16px more or less
+  font-size: 100%;
 }
 
 body {
