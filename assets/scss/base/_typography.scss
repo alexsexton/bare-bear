@@ -51,6 +51,18 @@ small {
 .rich-text {
   max-width: $measure;
 
+  p {
+    a {
+      text-decoration: underline;
+      text-decoration-skip: edges;
+      text-decoration-color: $link-colour;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
   ul {
     margin: 0 0 $spacer $spacer;
     li {
@@ -81,7 +93,7 @@ small {
     padding: 0 0 0 $spacer * 2;
     margin: 0 0 $spacer 0;
     max-width: $measure;
-    border-left: 5px solid $brand-primary;
+    border-left: 3px solid $brand-primary;
 
     cite:before {
       content: "\2014\00a0";
@@ -96,8 +108,25 @@ small {
     margin: 0 0 $spacer 0;
   }
 
-  // Links
+  hr {
+    height: 3px;
+    background: $border-colour;
+    margin: $spacer * 2 0;
+  }
 
+  strong {
+    font-weight: bold;
+  }
+
+  u {
+    text-decoration-skip: edges;
+  }
+
+  i {
+    font-style: italic;
+  }
+
+  // Links
   a {
     color: $link-colour;
     text-decoration: none;
