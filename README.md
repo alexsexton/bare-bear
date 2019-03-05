@@ -8,7 +8,7 @@ Clone or download, rename the theme folder and change the theme name in `styles.
 
 ### Optional
 
-If you going to riff on this theme and make a new one, you might want to consider changing the language and function namespace. Simply do a find a replace of the following string `_bare`.
+If you going to riff on this theme and make a new one, you might want to consider changing the language and function namespace/scope. Simply do a find a replace for the following string `_bare`.
 
 ## Prerequisites
 
