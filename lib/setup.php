@@ -83,6 +83,12 @@ function bare_excerpt_more($more) {
 
 add_filter( 'excerpt_more', 'bare_excerpt_more' );
 
+// Custom excerpt length - uncomment if needed
+// function bare_custom_excerpt_length( $length ) {
+// 	return 21;
+// }
+// add_filter( 'excerpt_length', 'bare_custom_excerpt_length', 999 );
+
 // Disable tags - uncomment if needed
 
 // function bare_unregister_tags() {
