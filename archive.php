@@ -3,10 +3,10 @@
 
 <main class="main">
   <section>
-    <header class="blog-description">
+    <header class="the-category">
       <h1><?php single_cat_title(); ?></h1>
       <?php if (category_description()) :?>
-        <?php echo category_description(); ?>
+        <p class="the-category-desc"><?php echo category_description(); ?></p>
       <?php endif; ?>
     </header>
 
