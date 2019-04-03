@@ -1,4 +1,23 @@
 img {
-  max-width: 100%;
   display: block;
+  width: 100%;
+  height: auto;
+}
+
+div[id*='attachment'] {}
+
+img[class*='wp-image'] {}
+
+.wp-caption {}
+
+.wp-caption-text {}
+
+.alignleft, .alignright, .aligncenter, .alignnone {
+  margin: $spacer 0;
+  clear: both;
+  max-width: 100% !important; // HACK
+}
+
+.aligncenter {
+  margin: auto;
 }
