@@ -31,7 +31,7 @@ function _bare_strip_empty_classes($menu) {
 }
 add_filter ('wp_nav_menu','_bare_strip_empty_classes');
 
-// Custom walker for Pentland - does some class name replacement and adds a div
+// Custom walker - does some class name replacement and adds a div
 // element around the sub-nav. So happy I keep previous projects - thanks Josh
 // for spending 3 days working this out two years ago.
 
