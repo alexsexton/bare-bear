@@ -10,6 +10,11 @@
     wp_deregister_style( 'wp-mediaelement' );
     // Deregister the wp-block-library block library styles
     wp_deregister_style( 'wp-block-library' );
+    // Deregister other plugin styles - customise as needed
+    // Deregister the wc-block-style block library styles
+    // wp_deregister_style( 'wc-block-style' );
+    // Deregister the bogo library styles
+    //wp_deregister_style( 'bogo' );
 
     wp_enqueue_style('main-styles', get_template_directory_uri() . '/static/main.css', array(), $cache_buster );
 

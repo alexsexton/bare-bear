@@ -1,3 +1,7 @@
+<?php
+  // Template Name: Woocommerce
+?>
+
 <?php get_header() ?>
 <?php get_template_part('partials/site-header') ?>
 

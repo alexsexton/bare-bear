@@ -79,8 +79,17 @@ function _bare_excerpt_more($more) {
   global $post;
   return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', '_bare' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more', '_bare' ) .'</a>';
 }
-
 add_filter( 'excerpt_more', '_bare_excerpt_more' );
+
+// Add woocommerce support
+function _bare_add_woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', '_bare_add_woocommerce_support' );
+
+// Remove woocommerce styles
+add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
 
 // Custom excerpt length - uncomment if needed
 // function _bare_custom_excerpt_length( $length ) {
