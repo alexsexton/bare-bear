@@ -10,7 +10,7 @@
     ));
   ?>
 
-<small>&copy; Copyright <?php echo(date(Y)); ?></small>
+<small>&copy; Copyright <?php echo(date('Y')); ?></small>
 
 </footer>
 
