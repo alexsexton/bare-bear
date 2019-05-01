@@ -1,9 +1,9 @@
 <?php
+// Init setup functions
+require_once 'lib/setup.php';
+
 // Setup the _bare theme.
 function _bare_setup() {
-
-	// Theme setup
-	require_once 'lib/setup.php';
 
 	// Image functions
 	require_once 'lib/images.php';
