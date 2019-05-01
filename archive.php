@@ -16,7 +16,7 @@
 
   </section>
 
-  <?php get_template_part('partials/sidebar'); ?>
+  <?php get_sidebar(); ?>
 
   <?php get_template_part('partials/pagination') ?>
 
