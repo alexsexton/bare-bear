@@ -1,7 +1,7 @@
 <?php
   // Load theme static assets
   function _bare_theme_scripts() {
-    $cache_buster = date(zB);
+    $cache_buster = date('zB');
 
     wp_deregister_script( 'jquery' );
     // Deregister the wp-embed script, and the wp-mediaelement script and stylesheet.
