@@ -1,9 +1,12 @@
 <?php
-// Init setup functions
+// Init
 require_once 'lib/setup.php';
 
 // Setup the _bare theme.
 function _bare_setup() {
+
+	// Post functions
+	require_once 'lib/posts.php';
 
 	// Image functions
 	require_once 'lib/images.php';
@@ -22,6 +25,9 @@ function _bare_setup() {
 
 	// Theme custom nav walker
 	require_once 'lib/menus.php';
+
+	// Woocommerce functions
+	require_once 'lib/woocommerce.php';
 
 	// Theme custom fields (ACF)
 	// require_once 'app/custom-fields.php';
