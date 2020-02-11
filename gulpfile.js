@@ -1,8 +1,9 @@
-// Gulp.js configuration
+// Gulp configuration
 
 // Modules
 var gulp = require('gulp')
 var newer = require('gulp-newer')
+var del = require('del')
 
 // Optimise images and SVG
 var imagemin = require('gulp-imagemin')
@@ -20,13 +21,22 @@ var sass = require('gulp-sass')
 var postcss = require('gulp-postcss')
 var assets = require('postcss-assets')
 var autoprefixer = require('autoprefixer')
-var mqpacker = require('css-mqpacker')
 var cssnano = require('cssnano')
 
 var folder = {
   src: 'assets/',
   build: 'static/'
 }
+
+// Change the path below to your main scss file
+var file = {
+  scss: 'scss/main.scss'
+}
+
+// Clean
+gulp.task('clean', function () {
+  return del([folder.build + 'main.css', folder.build + 'main.js', folder.build + 'main.min.js'], { force: true })
+})
 
 // image processing
 gulp.task('images', function () {
@@ -46,15 +56,14 @@ gulp.task('svgmin', function () {
 })
 
 // CSS processing
-gulp.task('css', ['images'], function () {
+gulp.task('css', gulp.series('images', function () {
   var postCssOpts = [
     assets({ loadPaths: ['assets/'] }),
-    autoprefixer({ browsers: ['last 2 versions', '> 2%'] }),
-    mqpacker
+    autoprefixer
   ]
   postCssOpts.push(cssnano)
 
-  return gulp.src(folder.src + 'scss/main.scss')
+  return gulp.src(folder.src + file.scss)
     .pipe(sass({
       outputStyle: 'nested',
       imagePath: 'images/',
@@ -63,10 +72,10 @@ gulp.task('css', ['images'], function () {
     }))
     .pipe(postcss(postCssOpts))
     .pipe(gulp.dest(folder.build))
-})
+}))
 
 // Babel processing
-gulp.task('babel', function () {
+gulp.task('babel', function (done) {
   gulp.src([
     folder.src + 'js/lib/*',
     folder.src + 'js/*'
@@ -75,12 +84,12 @@ gulp.task('babel', function () {
     .pipe(deporder())
     .pipe(concat('main.js'))
     .pipe(gulp.dest(folder.build))
+  done()
 })
 
 // JavaScript processing
-gulp.task('js', ['babel'], function () {
+gulp.task('js', gulp.series('babel', function () {
   var jsbuild = gulp.src([
-    folder.src + 'js/plugins/*',
     folder.src + 'js/lib/*',
     folder.src + 'js/main.js'
   ]) // <- Multiple files need to go in an array
@@ -93,20 +102,20 @@ gulp.task('js', ['babel'], function () {
     .pipe(uglify())
 
   return jsbuild.pipe(gulp.dest(folder.build))
-})
+}))
 
 // run all tasks
-gulp.task('run', ['images', 'css', 'babel', 'js'])
+gulp.task('run', gulp.series('clean', 'images', 'css', 'babel', 'js'))
 
 // watch for changes
-gulp.task('watch', ['run'], function () {
+gulp.task('watch', gulp.series('run', function () {
   // image changes
-  gulp.watch(folder.src + 'images/**/*', ['images'])
+  gulp.watch(folder.src + 'images/**/*', gulp.series('images'))
   // javascript changes
-  gulp.watch(folder.src + 'js/**/*', ['babel', 'js'])
+  gulp.watch(folder.src + 'js/**/*', gulp.series('babel', 'js'))
   // css changes
-  gulp.watch(folder.src + 'scss/**/*', ['css'])
-})
+  gulp.watch(folder.src + 'scss/**/*', gulp.series('css'))
+}))
 
 // default task
-gulp.task('default', ['run'])
+gulp.task('default', gulp.series('run'))
