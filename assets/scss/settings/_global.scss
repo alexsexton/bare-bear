@@ -4,17 +4,34 @@ $fontPath: "/fonts";
 
 // Spacers
 $spacer: 1rem;
+$halfspacer: $spacer / 2;
+$spacerandhalf: $spacer * 1.5;
+$spacer2: $spacer * 2;
+$spacer3: $spacer * 3;
+$spacer4: $spacer * 4;
+$spacer5: $spacer * 5;
+$spacer6: $spacer * 6;
+$spacer7: $spacer * 7;
+$spacer8: $spacer * 8;
+$spacer9: $spacer * 9;
+$spacer10: $spacer * 10;
+$spacer15: $spacer * 15;
 
 // Site Width
 $site-max-width: 1400px;
-$site-gutters: $spacer * 3;
-$small-site-gutters: $spacer * 1.5;
+$site-gutters: $spacer3;
+$small-site-gutters: $spacer2;
 
 // Breakpoints
 $big-screen: 1020px;
 $medium-screen: 900px;
 $small-screen: 780px;
 $tiny-screen: 480px;
+
+// @media screen and (max-width: $big-screen) {}
+// @media screen and (max-width: $medium-screen) {}
+// @media screen and (max-width: $small-screen) {}
+// @media screen and (max-width: $tiny-screen) {}
 
 // Margins & Padding
 $margin: $spacer * 2;
@@ -67,3 +84,8 @@ $small-font-size: 0.8rem;
 $small-screen-font-size: 0.8rem;
 $print-font-size: $small-screen-font-size;
 $measure: 44rem;
+
+// Type
+
+$normal: 400;
+$bold: 700;
