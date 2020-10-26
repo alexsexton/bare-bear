@@ -30,7 +30,8 @@ function _bare_setup() {
 	require_once 'lib/woocommerce.php';
 
 	// Theme custom fields (ACF)
-	// require_once 'app/custom-fields.php';
+	require_once 'app/custom-fields.php';
+  require_once 'app/custom-blocks.php';
 
 	// Register menus
 	register_nav_menus(

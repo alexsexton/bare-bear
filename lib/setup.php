@@ -44,9 +44,9 @@ if ( ! isset( $content_width ) ) {
 // remove wp version param from any enqueued scripts and styles
 if ( $production_env == true ) {
   function _bare_remove_wp_ver_css_js( $src ) {
-      if ( strpos( $src, 'ver=' ) )
-          $src = remove_query_arg( 'ver', $src );
-      return $src;
+    if ( strpos( $src, 'ver=' ) )
+    $src = remove_query_arg( 'ver', $src );
+    return $src;
   }
   add_filter( 'style_loader_src', '_bare_remove_wp_ver_css_js', 9999 );
   add_filter( 'script_loader_src', '_bare_remove_wp_ver_css_js', 9999 );
@@ -70,12 +70,40 @@ add_theme_support( 'custom-logo', array(
 
 // Remove the additional CSS section
 function _bare_remove_css_section( $wp_customize ) {
-	$wp_customize->remove_section( 'custom_css' );
+  $wp_customize->remove_section( 'custom_css' );
 }
 add_action( 'customize_register', '_bare_remove_css_section', 15 );
 
 // Add woocommerce support
 function _bare_add_woocommerce_support() {
-    add_theme_support( 'woocommerce' );
+  add_theme_support( 'woocommerce' );
 }
 add_action( 'after_setup_theme', '_bare_add_woocommerce_support' );
+
+## REST API
+
+// Register acf fields to Wordpress API
+// https://support.advancedcustomfields.com/forums/topic/json-rest-api-and-acf/
+function create_ACF_meta_in_REST() {
+  $postypes_to_exclude = ['acf-field-group','acf-field'];
+  $extra_postypes_to_include = ["books"];
+  $post_types = array_diff(get_post_types(["_builtin" => false], 'names'),$postypes_to_exclude);
+
+  array_push($post_types, $extra_postypes_to_include);
+
+  foreach ($post_types as $post_type) {
+    register_rest_field( $post_type, 'ACF', [
+      'get_callback'    => 'expose_ACF_fields',
+      'schema'          => null,
+    ]
+  );
+}
+
+}
+
+function expose_ACF_fields( $object ) {
+  $ID = $object['id'];
+  return get_fields($ID);
+}
+
+add_action( 'rest_api_init', 'create_ACF_meta_in_REST' );
