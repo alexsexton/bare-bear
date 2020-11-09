@@ -16,5 +16,6 @@
 
 <?php wp_footer(); ?>
 
+</div> <?php // wrapper end; ?>
 </body>
 </html>

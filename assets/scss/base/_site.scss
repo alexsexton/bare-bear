@@ -5,5 +5,11 @@ html {
 }
 
 body {
+  background: $near-white;
+}
 
+.wrapper {
+  background: $white;
+  margin: $spacer4 $spacer8;
+  padding: $spacer2;
 }

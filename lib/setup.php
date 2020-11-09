@@ -1,10 +1,25 @@
 <?php
+if (function_exists('wp_get_environment_type')) {
+  switch ( wp_get_environment_type() ) {
+    case 'local':
+    case 'development':
+    case 'staging':
+    $production_env = false;
+    break;
 
-// Quite a lot of this file strips WordPress generated crap from the header
+    case 'production':
+    default:
+    $production_env = true;
+    break;
+  }
+} else {
+  $cache_buster = false;
+}
 
-// Set production_env to true or false
-// If true query strings are stripped from JS and CSS asset files
-$production_env = false;
+// Apparently this is needed to pass theme check
+if ( ! isset( $content_width ) ) {
+  $content_width = '100%';
+}
 
 // Remove crap from wp_head
 remove_action( 'wp_head', 'wp_generator' );

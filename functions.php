@@ -5,6 +5,9 @@ require_once 'lib/setup.php';
 // Setup the _bare theme.
 function _bare_setup() {
 
+  // Utilities
+  require_once 'lib/ultilities.php';
+
 	// Post functions
 	require_once 'lib/posts.php';
 

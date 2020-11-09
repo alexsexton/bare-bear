@@ -1,0 +1,194 @@
+.partner__title {
+  font-size: 2rem;
+}
+
+.header--readingroom {
+    background-color: #185e6c;
+    padding-bottom: 50px;
+
+    .header__content p {
+      background: #fff;
+      border: 3px solid #66b9b2;
+      padding: 30px;
+      box-shadow: -5px 5px rgba(8,82,103,0.8);
+    }
+}
+
+.library--objects, .purr {
+    display: none;
+}
+
+.section--readingroom {
+    background: #185e6c url('/images/background-readingroom.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-position: bottom left;
+    min-height: 110vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-flow: column;
+    white-space: nowrap;
+    overflow-x: auto;
+    position: relative;
+    padding: 0;
+
+    @media screen and (max-width: 900px) {
+        background: #185e6c url('/images/background-readingroom-mobile.png');
+        background-repeat: no-repeat;
+        background-attachment: local;
+        min-height: 1000px;
+        background-position: bottom left
+    }
+}
+
+.m-table {
+    width: 180px;
+    position: absolute;
+    left: 25%;
+    bottom: 70px;
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+    img {
+        display: block
+    }
+}
+
+.m-cat {
+    width: 100px;
+    position: absolute;
+    left: 28%;
+    bottom: 80px;
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+    img {
+        display: block
+    }
+}
+
+.m-radio {
+    width: 125px;
+    position: absolute;
+    left: 66%;
+    bottom: 160px;
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+    img {
+        display: block
+    }
+}
+
+
+/* Phone / Pad  change layout to grid and 3 per row then 2 per row. */
+
+.m-book {
+    width: 75px;
+    margin-right: 25px;
+    @media screen and (max-width: 900px) {
+        width: 90px;
+    }
+
+    img {
+        display: block
+    }
+
+    h2 {
+        display: none;
+    }
+}
+
+.m-object {
+    max-width: 75px;
+    margin-right: 25px;
+    @media screen and (max-width: 900px) {
+        width: 100px;
+    }
+    img {
+        display: block
+    }
+}
+
+.m-books-lying {
+    max-width: 175px;
+    margin-right: 25px;
+    @media screen and (max-width: 900px) {
+        width: 100px;
+    }
+    img {
+        display: block
+    }
+}
+
+
+
+.readingroom--library {
+    position: relative;
+    height: 150px;
+    display: flex;
+    flex-flow: row nowrap;
+    background: url('/images/shelf.png') repeat-x bottom left;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    align-items: flex-end;
+    min-width: 600px;
+
+    @media screen and (max-width: 900px) {
+        height: auto;
+        padding-right: 50px;
+    }
+}
+
+.readingroom--library:before {
+    content: '';
+    position: absolute;
+    background: url('/images/shelf-start.png') no-repeat bottom left;
+    left: 0;
+    bottom: 0;
+    display: block;
+    height: 50px;
+    width: 56px;
+}
+
+.readingroom--library:after {
+    content: '';
+    position: absolute;
+    background: url('/images/shelf-end.png') no-repeat bottom right;
+    right: 0;
+    bottom: 0;
+    display: block;
+    height: 50px;
+    width: 56px;
+}
+
+.library--top {
+    margin-top: 25px;
+    left: 25%;
+    min-width: 400px;
+    @media screen and (max-width: 900px) {
+        left: 5%;
+    }
+}
+
+.library--middle {
+    left: 30%;
+    margin-top: 15px;
+    @media screen and (max-width: 900px) {
+        margin-top: 50px;
+        left: 10%;
+    }
+}
+
+.library--bottom {
+    left: 28%;
+    margin-top: 20px;
+    min-width: 500px;
+    @media screen and (max-width: 900px) {
+        margin-top: 50px;
+        left: 8%;
+        margin-bottom: 50px;
+    }
+}

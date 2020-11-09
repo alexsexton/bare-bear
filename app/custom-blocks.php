@@ -6,14 +6,14 @@ function my_acf_init_block_types() {
   // Check function exists.
   if( function_exists('acf_register_block_type') ) {
 
-    // register a testimonial block.
+    // register book blocks
     acf_register_block_type(array(
-      'name'              => 'book',
-      'title'             => __('Book'),
-      'description'       => __('A custom book block.'),
-      'render_template'   => 'partials/blocks/book.php',
+      'name'              => 'shelf',
+      'title'             => __('Shelf'),
+      'description'       => __('A readingroom shelf block.'),
+      'render_template'   => 'partials/blocks/shelf.php',
       'category'          => 'formatting',
-      'icon'              => 'dashicons-book',
+      'icon'              => 'book',
       'keywords'          => array( 'book', 'library' ),
     ));
   }
@@ -29,25 +29,6 @@ acf_add_local_field_group(array(
 			'key' => 'field_5f842f319cbff',
 			'label' => 'Title',
 			'name' => 'title',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-		array(
-			'key' => 'field_5f842f379cc00',
-			'label' => 'Author',
-			'name' => 'author',
 			'type' => 'text',
 			'instructions' => '',
 			'required' => 0,
@@ -126,44 +107,6 @@ acf_add_local_field_group(array(
 			'return_format' => 'array',
 			'ajax' => 0,
 			'placeholder' => '',
-		),
-		array(
-			'key' => 'field_5f842f3d9cc01',
-			'label' => 'Summary',
-			'name' => 'summary',
-			'type' => 'wysiwyg',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'tabs' => 'all',
-			'toolbar' => 'basic',
-			'media_upload' => 0,
-			'delay' => 0,
-		),
-		array(
-			'key' => 'field_5f84309ce6569',
-			'label' => 'Description',
-			'name' => 'description',
-			'type' => 'wysiwyg',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'tabs' => 'all',
-			'toolbar' => 'full',
-			'media_upload' => 0,
-			'delay' => 0,
 		),
 		array(
 			'key' => 'field_5f842f559cc03',
