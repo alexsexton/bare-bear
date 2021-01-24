@@ -13,7 +13,7 @@ if (function_exists('wp_get_environment_type')) {
     break;
   }
 } else {
-  $cache_buster = false;
+  $production_env = false;
 }
 
 // Apparently this is needed to pass theme check
@@ -49,11 +49,6 @@ add_action( 'init', '_bare_disable_wp_emojicons' );
 
 function disable_emojicons_tinymce( $plugins ) {
   return is_array( $plugins ) ? array_diff( $plugins, array( 'wpemoji' ) ) : array();
-}
-
-// Apparently this is needed to pass theme check
-if ( ! isset( $content_width ) ) {
-  $content_width = '100%';
 }
 
 // remove wp version param from any enqueued scripts and styles
