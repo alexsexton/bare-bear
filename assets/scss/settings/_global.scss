@@ -1,11 +1,12 @@
-// Paths
-$imagePath: "/images";
-$fontPath: "/fonts";
+// Global Variables
+
+// Paths. Use like this in css url("#{$image-path}/image.svg");
+$image-path: "../static/images";
+$font-path: "../static/fonts";
 
 // Spacers
-$spacer: 1rem;
+$spacer: 5px;
 $halfspacer: $spacer / 2;
-$spacerandhalf: $spacer * 1.5;
 $spacer2: $spacer * 2;
 $spacer3: $spacer * 3;
 $spacer4: $spacer * 4;
@@ -15,77 +16,89 @@ $spacer7: $spacer * 7;
 $spacer8: $spacer * 8;
 $spacer9: $spacer * 9;
 $spacer10: $spacer * 10;
+$spacer11: $spacer * 11;
+$spacer12: $spacer * 12;
+$spacer13: $spacer * 13;
+$spacer14: $spacer * 14;
 $spacer15: $spacer * 15;
+$spacer16: $spacer * 16;
+$spacer17: $spacer * 17;
+$spacer18: $spacer * 18;
+$spacer24: $spacer * 24;
 
 // Site Width
-$site-max-width: 1400px;
-$site-gutters: $spacer3;
-$small-site-gutters: $spacer2;
+$site-grid-width: 1440px;
+$site-gutters: 30px;
 
 // Breakpoints
-$big-screen: 1020px;
-$medium-screen: 900px;
-$small-screen: 780px;
-$tiny-screen: 480px;
+$huge-screen: 1441px; // Large desktop screens
+$big-screen: 1024px;
+$medium-screen-min: 961px;
+$medium-screen: 960px;
+$small-screen-min: 795px;
+$small-screen: 794px;
+$tiny-screen: 360px;
 
-// @media screen and (max-width: $big-screen) {}
-// @media screen and (max-width: $medium-screen) {}
 // @media screen and (max-width: $small-screen) {}
-// @media screen and (max-width: $tiny-screen) {}
 
 // Margins & Padding
-$margin: $spacer * 2;
-$padding: $spacer * 2;
+$margin: $spacer2;
+$padding: $spacer2;
 $small-padding: $spacer;
 
-// Colours - from tachyons palette
-
-// Brand
-$brand-primary: $blue;
-$brand-secondary: $orange;
-$brand-tertiary: $pink;
+// Colours
 
 // Errors
-$highlight: $yellow;
-$error: $red;
+$highlight: $theme-2;
+$error: $theme-red;
 
 // Base Site
-$base-font-colour: #222;
-$body-background: #fff;
-$light-grey: #f8f8f8;
-$medium-grey: #c8c8c8;
-$dark-grey: #6f777b;
-$black: #0b0c0c;
-$link-colour: $brand-primary;
-$link-hover-colour: $brand-tertiary;
+$base-font-colour: $black;
+$body-background: $white;
+
+// Linkage
+$link-colour: $black;
+$link-hover-colour: $grey1;
 
 // Buttons
-$button: $brand-primary;
-$button-inactive: scale-color($brand-primary, $lightness: 50%);
-$button-hover: $brand-tertiary;
+$button: $black;
+$button-text: $black;
+$button-hover: $black;
+$button-hover-text: $black;
+
+$button-solid: $theme-pink;
+$button-solid-text: $white;
+$button-solid-hover: $black;
+$button-solid-hover-text: $white;
+
+$button-inactive: $grey4;
+
+// Label
 
 // Tables
-$table-borders: $medium-grey;
+$table-borders: grey3;
 
 // Borders
-$border-colour: $dark-grey;
+$border-colour: $grey4;
 $border-radius: 0px;
-$border-size: 2px;
-$input-border: $dark-grey;
-$input-border-focus: $highlight;
+$border-size: 1px;
+$input-border-colour: $grey4;
+$input-border-colour-focus: $black;
 
 // Typography
-$font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$font-family-sans: "bilo", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 $font-family-serif: "Georgia", Times,Serif;
 $base-font-size: 1rem;
-$base-line-height: 1.4;
-$heading-line-height: 1.4;
-$small-font-size: 0.8rem;
-$small-screen-font-size: 0.8rem;
-$print-font-size: $small-screen-font-size;
-$measure: 44rem;
-
-// Type
-
+$base-line-height: 1.5625; // 25px;
+$measure: 54rem;
+$bold: 500;
 $normal: 400;
-$bold: 700;
+$small-font-size: 0.75rem;
+$detail-font-size: 0.75rem;
+
+// Transitions
+$trans-time: 200ms;
+$trans-time-slow: 900ms;
+
+// Panel
+$panel-background: $theme-1;

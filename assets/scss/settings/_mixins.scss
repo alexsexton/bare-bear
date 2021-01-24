@@ -1,360 +1,307 @@
-// Expander
-@mixin expander {
-  @media screen and (max-width: $small-screen) {
-    line-height: 56px;
-    border-top: 4px solid $black;
-    padding: 0 $small-site-gutters;;
-    margin: 0;
-    position: relative;
-    background: transparent url("#{$image-path}/mobile-expand.svg") no-repeat center right $small-site-gutters;
-    background-size: 16px;
-    &.active {
-      background: transparent url("#{$image-path}/mobile-contract.svg") no-repeat center right $small-site-gutters;
-      background-size: 16px;
-    }
-  }
-}
-
-@mixin reveal {
-  @media screen and (max-width: $small-screen) {
-    line-height: 56px;
-    padding: 0 $small-site-gutters;;
-    margin: 0;
-    position: relative;
-    background: transparent url("#{$image-path}/arrow-down.svg") no-repeat center right $small-site-gutters;
-    background-size: 16px;
-    &.active {
-      background: transparent url("#{$image-path}/arrow-up.svg") no-repeat center right $small-site-gutters;
-      background-size: 16px;
-    }
-  }
-}
-
-// Type
-
-@mixin product-list-title {
-  display: block;
-  text-transform: capitalize;
-  margin: $halfspacer 0 0 0;
-  font-weight: $normal;
-}
-
-// Layouts
+// Site wrapper
 @mixin site-wrap {
-  padding-right: $site-gutters;
-  padding-left: $site-gutters;
+  margin: auto;
+}
+
+@mixin error {
+  background: #840003;
+  color: $white;
+  padding: $spacer $spacer2;
+}
+
+@mixin msg {
+  border: $border-size solid $black;
+  padding: $spacer $spacer2;
+  font-size: $detail-font-size;
+  margin-bottom: $spacer4;
+}
+
+@mixin update {
+  background: $grey4;
+  color: $black;
+  padding: $spacer $spacer2;
+}
+
+@mixin heading1 {
+  font-size: 1.875rem;
+  line-height: 35px;
+  letter-spacing: -1px;
+  margin-bottom: $spacer4;
+  @media screen and (min-width: $huge-screen) {
+    font-size: 2.5rem;
+    line-height: 47px;
+  }
   @media screen and (max-width: $small-screen) {
-    padding-right: $small-site-gutters;
-    padding-left: $small-site-gutters;
+    font-size: 25px;
+    line-height: 30px;
   }
 }
 
-@mixin unset-site-wrap {
-  padding-right: 0;
-  padding-left: 0
+@mixin heading2 {
+  font-size: 1.5625rem;
+  line-height: 30px;
+  letter-spacing: -1px;
+  margin-bottom: $spacer4;
+  @media screen and (min-width: $huge-screen) {
+    font-size: 2.075rem;
+    line-height: 40px;
+  }
+  @media screen and (max-width: $small-screen) {
+    font-size: 22px;
+    line-height: 25px;
+  }
 }
 
-// Buttons
+@mixin heading3 {
+  font-size: 1.375rem;
+  line-height: 25px;
+  letter-spacing: -1px;
+  margin-bottom: $spacer4;
+  @media screen and (min-width: $huge-screen) {
+  }
+  @media screen and (max-width: $small-screen) {
+    font-size: 20px;
+    line-height: 25px;
+  }
+}
+
+@mixin heading4 {
+  font-size: 1.25rem;
+  line-height: 25px;
+  letter-spacing: -1px;
+  @media screen and (min-width: $huge-screen) {
+  }
+  @media screen and (max-width: $small-screen) {
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+@mixin body1 {
+  font-size: 1rem;
+  line-height: 25px;
+  font-weight: $normal;
+  @media screen and (max-width: $small-screen) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+@mixin body2 {
+  font-size: 0.875rem;
+  line-height: 20px;
+  @media screen and (max-width: $small-screen) {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+@mixin detail {
+  font-size: 0.75rem;
+  line-height: 15px;
+  @media screen and (max-width: $small-screen) {
+    font-size: 10px;
+    line-height: 15px;
+  }
+}
+
 @mixin button {
   appearance: none;
-  box-sizing: border-box;
-  display: inline-block;
-  padding: $spacer $spacer4 $spacer $halfspacer;
-  border: 4px solid $black;
+  background: transparent url("#{$image-path}/arrow.svg") no-repeat top 50% right 30px;
   border-radius: 0;
-  background: $button url("#{$image-path}/arrow-right.svg") no-repeat top 50% right $halfspacer;
-  background-size: 7px 12px;
+  border: 1px solid rgba($black, 0.15);
   color: $button-text;
   cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: $normal;
-  line-height: 1;
-  margin-top: $spacer3;
-  text-align: left;
-  white-space: nowrap;
-  transition: background-color $trans-time ease-in-out;
-  @media (hover) {
-    &:hover {
-      background-color: $button-hover;
-      color: $button-text;
-    }
-  }
-  @media screen and (max-width: $small-screen) {
-    width: 100%;
-    margin-top: $spacer2;
-    }
-}
-
-@mixin button-centered {
-  @include button;
-  display: block;
-  width: 100%;
-  background-image: none;
-  padding: $spacer;
-  text-align: center;
-  @media (hover) {
-    &:hover {
-      background-color: $button-hover;
-      color: $button-text;
-    }
-  }
-  @media screen and (max-width: 959px) {
-    margin-top: $spacer;
-  }
-}
-
-@mixin button-go {
-  appearance: none;
-  box-sizing: border-box;
   display: inline-block;
-  padding: $halfspacer;
-  width: 25px;
-  border: 0;
-  border-radius: 0;
-  background: $black url("#{$image-path}/arrow-go.svg") no-repeat center center;
-  background-size: 12px 7px;
+  font-weight: $normal;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 18px;
+  padding-top: $spacer4;
+  padding-right: $spacer18;
+  padding-bottom: $spacer4;
+  padding-left: $spacer6;
+  @media screen and (max-width: $small-screen) {
+    padding-top: $spacer3;
+    padding-bottom: $spacer3;
+    font-size: 12px;
+  }
+  text-align: left;
+  transition: all $trans-time ease-in-out;
+  white-space: nowrap;
+  outline: none;
+
+  &:hover {
+    border: 1px solid rgba($black, 0.3);
+    background-color: transparent;
+    color: $button;
+  }
+}
+
+@mixin button-light {
+  @include button;
+  background: transparent url("#{$image-path}/arrow-light.svg") no-repeat top 50% right 30px;
+  border: 1px solid rgba($white, 0.15);
   color: $white;
   cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: $normal;
-  line-height: 1;
+  &:hover {
+    border: 1px solid rgba($white, 0.3);
+    background-color: transparent;
+    color: $white;
+  }
+}
+
+@mixin button-solid {
+  @include button;
+  padding-left: $spacer6;
+  padding-right: $spacer6;
+  background: $button-solid;
+  border: 1px solid $button-solid;
+  color: $button-solid-text;
+  cursor: pointer;
   text-align: center;
-  white-space: nowrap;
-  transition: background-color $trans-time ease-in-out;
-  @media (hover) {
-    &:hover {
-      background-color: $button;
-      color: $black;
-    }
+
+  &:hover {
+    background: $button-solid-hover;
+    color: $button-solid-hover-text;
   }
 }
 
-@mixin button-inverse {
+@mixin button-outline {
   @include button;
+  padding-left: 0;
+  padding-right: 0;
+  background: transparent;
+  border: 1px solid rgba($black, 0.15);
   color: $black;
-  background-color: $button-inverse;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    border: 1px solid rgba($black, 0.3);
+    background: transparent;
+    color: $grey2;
+  }
 }
 
-@mixin button-facets {
+@mixin non-button {
   @include button;
+  padding-left: 0;
+  padding-right: 0;
+  background: transparent;
+  border: 1px solid transparent;
   color: $black;
-  background: transparent url("#{$image-path}/arrow-down.svg") no-repeat top 50% right $halfspacer;
-  background-size: 12px 7px;
-  background-color: $brandwhite;
-  padding: $halfspacer $spacer2;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    border: 1px solid transparent;
+    background: transparent;
+    color: $grey2;
+  }
 }
 
-@mixin button-small {
-  @include button;
-}
-
-@mixin button-link {
-  display: inline;
-  width: auto;
-  padding: 0;
+@mixin button-icon {
+  appearance: none;
+  background: transparent;
   border: 0;
-  background: $button-text;
-  color: $button;
-  font-weight: $bold;
-  cursor: pointer;
-  @media (hover) {
-    &:hover {
-      color: $link-hover-colour;
-    }
-  }
-}
-
-@mixin button-reset($background) {
-  appearance: none;
   padding: 0;
-  border: none;
-  border-radius: 0;
-  background-color: $background;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-@mixin not-a-button {
-  appearance: none;
-  border: none;
-  background-color: transparent;
-  line-height: 1;
   cursor: pointer;
+  outline: none;
 }
 
-// Panels and Overlays
+@mixin button-select {
+  @include button-icon;
+  background: transparent url("#{$image-path}/carat-down.svg") no-repeat 100% 50%;
+  padding-right: 20px;
+}
 
-// Sides in from left
-@mixin panel {
-  z-index: 105;
+@mixin button-selected {
+  @include button-icon;
+  background: transparent url("#{$image-path}/carat-up.svg") no-repeat 100% 50%;
+  padding-right: 20px;
+}
+
+@mixin box {
   position: fixed;
-  top: 80px;
+  top: 0;
   left: 0;
-  border-top: 8px solid $black;
-  background-color: $panel-background;
-  width: calc(100% * 1 / 3);
-  height: calc(100vh - 80px);
-  padding: $spacer $site-gutters;
+  width: 100vw;
+  height: 100vh;
+  transform: translateY(-100%);
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin box-open {
+  -webkit-overflow-scrolling: touch;
+  transform: translateY(0);
+  z-index: 101;
+}
+
+@mixin nav-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  min-height: 100vh;
+  width: grid-width(17);
   overflow-x: hidden;
   overflow-y: scroll;
-  transform: translateX(-100%);
-  transition: transform .5s, left .5s;
-  transition-timing-function: ease-in-out;
+  background-color: $panel-background;
+  transform: translateX(100%);
+  transition: transform $trans-time ease-in-out;
+}
+
+@mixin nav-panel-open {
+  -webkit-overflow-scrolling: touch;
+  transform: translateX(0);
+}
+
+@mixin panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  min-height: 100vh;
+  min-width: 400px;
+  width: grid-width(5);
   @media screen and (max-width: $small-screen) {
-    padding: $spacer $small-site-gutters;
-    width: 100vw;
-    transition: none;
-    transition-timing-function: none;
+    width: grid-width(17);
   }
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: $panel-background;
+  transform: translateX(100%);
+  transition: transform $trans-time-slow $trans-type1;
 }
 
 @mixin panel-open {
   -webkit-overflow-scrolling: touch;
-  top: 80px;
   transform: translateX(0);
 }
 
-// Sidedown from top
-@mixin overlay {
-  z-index: 104;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  min-height: calc(100vh * 1/2);
-  padding: $spacer;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  transform: translateY(-100%);
-  background-color: $brandwhite;
-  transition: all 0.3s ease-in-out;
-  @media screen and (max-width: $small-screen) {
-    transition: none;
-    min-height: 100vh;
-  }
-}
-
-@mixin overlay-open {
-  -webkit-overflow-scrolling: touch;
-  top: 80px;
-  transform: translateY(0);
-}
-
-// Facets Overlay
-@mixin facets-overlay {
-  z-index: 106;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  padding: $spacer;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  transform: translateY(-100%);
-  background-color: $brandwhite;
-  transition: all 0.3s ease-in-out;
-}
-
-@mixin facets-overlay-open {
-  -webkit-overflow-scrolling: touch;
-  top: 0;
-  transform: translateY(0);
-}
-
-// Box Overlay (auto height)
-@mixin box-overlay {
-  z-index: 104;
-  position: fixed;
-  top: 0;
-  right: $site-gutters;
-  left: auto;
-  width: calc(100vw * 1/3);
-  max-height: calc(100vh * 2/3);
-  padding: 36px 30px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  transform: translateY(-101%);
-  background-color: $brandwhite;
-  transition: transform 0.3s ease-in-out;
-  border: 4px solid $box-border;
-  border-top: none;
-  @media screen and (max-width: $small-screen) {
-    right: 0;
-    transition: none;
-    width: 100vw;
-    max-height: calc(100vh - 80px);
-    border: none;
-  }
-}
-
-@mixin box-overlay-open {
-  -webkit-overflow-scrolling: touch;
-  top: 88px;
-  transform: translateY(0);
-}
-
-@mixin lightbox {
-  z-index: 110;
-  position: fixed;
-  top: 0;
-  left: calc(100vw * 1/3);
-  width: calc(100vw * 1/3);
-  height: auto;
-  min-height: calc(100vh * 1/3);
-  max-height: calc(100vh - 150px);
-  padding: $spacer2;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  transform: translateY(-100%);
-  background-color: $brandwhite;
-  transition: transform 0.3s ease-in-out;
-  border: 4px solid $box-border;
-  @media screen and (max-width: $medium-screen) {
-    width: calc(100vw * 2/3);
-    left: calc(100vw * 1/6);
-    padding: $spacer;
-  }
-  @media screen and (max-width: $small-screen) {
-    width: 90vw;
-    max-height: calc(100vh - 80px);
-    left: calc(100vw * 1/20);;
-    transition: none;
-  }
-}
-
-@mixin lightbox-open {
-  -webkit-overflow-scrolling: touch;
-  top: 100px;
-  @media screen and (max-width: $small-screen) {
-  top: $spacer2;
-  }
-  transform: translateY(0);
-}
-
 @mixin shadow {
-  z-index: 101;
-  position: fixed;
-  top: 0;
+  background: rgba($black, 0.15);
+  content: "";
+  min-height: 100%;
   left: 0 !important;
+  top: 0;
   width: 100vw;
   height: 100vh;
-  min-height: 100%;
-  background: rgba($brand-primary, 0.3);
-  content: "";
-  transition: background 0.3s ease-in-out;
+  z-index: 99;
+  position: fixed;
+  transition: background $trans-time-slow $trans-type1;
 }
 
-// Utility
-
+// Group / AKA Clearfix
 @mixin group {
   @content;
-  &::before,
-  &::after {
-    display: table;
+  &::before, &::after {
     content: "";
+    display: table;
   }
   &::after {
     clear: both;
@@ -362,21 +309,21 @@
 }
 
 @mixin image {
-  display: block;
-  width: 100%;
-  height: auto;
   border-style: none;
+  display: block;
+  height: auto;
+  width: 100%;
 }
 
 @mixin svg {
+  border-style: none;
   display: block;
   height: auto;
-  border-style: none;
 }
 
 @mixin focus {
-  outline: 2px solid $highlight;
   background-color: transparent;
+  outline: 2px solid $highlight;
 }
 
 @mixin conceal {
@@ -390,43 +337,23 @@
 }
 
 @mixin hide {
-  position: absolute;
   left: -9999em;
+  position: absolute;
 }
 
 @mixin show {
-  position: static;
   left: inherit;
+  position: static;
 }
 
 @mixin visually-hidden {
+  border: 0;
   clip: rect(0 0 0 0);
-  position: absolute;
-  width: 1px;
   height: 1px;
   margin: -1px;
-  padding: 0;
   overflow: hidden;
-  border: 0;
+  padding: 0;
+  position: absolute;
   white-space: nowrap;
-}
-
-// Messages
-@mixin error {
-  padding: $halfspacer $spacer;
-  background: #840003;
-  color: $white;
-}
-
-@mixin msg {
-  margin-bottom: $spacer2;
-  padding: $halfspacer $spacer;
-  border: $border-size solid $black;
-  font-size: $small-font-size;
-}
-
-@mixin update {
-  padding: $halfspacer $spacer;
-  background: $light-grey;
-  color: $black;
+  width: 1px;
 }

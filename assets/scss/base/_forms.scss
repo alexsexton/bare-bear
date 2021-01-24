@@ -1,89 +1,210 @@
 // Resets / Global form styles
 
-input[type=text],
-input[type=search],
-input[type=email],
-input[type=url],
-input[type=tel],
-input[type=password],
-textarea {
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  appearance:none;
+@mixin form-input {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: $border-size solid $input-border-colour;
   border-radius: 0;
-  border: $border-size solid scale-color($input-border, $lightness: 50%);
+  color: $base-font-colour;
+  font-family: inherit;
   font-size: $base-font-size;
-  padding: 6px;
+  font-weight: $normal;
   margin: 0;
-  outline: 0;
-  transition: all 0.2s ease-in-out;
-  width: 75%;
-  font-family: $font-family-sans;
-  font-size: $base-font-size;
-  @media screen and (max-width: $small-screen) {
+  outline: none;
+  padding: $spacer 0;
+  transition: all $trans-time ease-in-out;
+  width: 100%;
+  z-index: 2;
+  opacity: 0.4;
+
+  &:focus {
+    border-color: $input-border-colour-focus;
+    opacity: 1;
+  }
+}
+
+input, textarea, fieldset, label, legend, select, button {
+  box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="password"],
+input[type="number"],
+textarea {
+  @include form-input;
+}
+
+input[type="number"] {
+  padding: $halfspacer 0;
+}
+
+input[data-state="valid"] {
+  border-color: $input-border-colour-focus;
+}
+
+textarea {
+  border: 0;
+  border-bottom: $border-size solid $input-border-colour;
+  outline: none;
+}
+
+input[type="number"] {
+  width: $spacer3;
+}
+
+// Placeholder text
+input::placeholder,
+input::placeholder-shown,
+input::-webkit-input-placeholder,
+input:-moz-placeholder,
+input::-moz-placeholder,
+input:-ms-input-placeholder,
+textarea::placeholder,
+textarea::placeholder-shown,
+textarea::-webkit-input-placeholder,
+textarea:-moz-placeholder,
+textarea::-moz-placeholder,
+textarea:-ms-input-placeholder {
+  color: $black;
+  opacity: 1;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background: $black;
+  opacity: 1;
+}
+
+@-webkit-keyframes autofill {
+  to {
+    color: $base-font-colour;
+    background: $white;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+
+  legend {
     width: 100%;
   }
 }
 
 textarea {
+  padding: $spacer;
   resize: none;
 }
 
 // Buttons
-.button, input[type="button"], input[type="submit"], input[type="reset"]  {
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  appearance:none;
-  cursor: pointer;
-  border: 0;
-  padding:$spacer / 2 $spacer ;
-  background: $button;
-  color: $light-grey;
-  transition: all 0.2s ease-in-out;
-  margin: 0 0 $spacer * 2 0;
-  font-family: $font-family-sans;
+.button--icon {
+  @include button-icon;
+}
+
+// Radios
+input[type=radio] {
+  appearance: none;
+  background: $white;
+  border-radius: 50%;
+  border: 1px solid $black;
+  height: 18px;
+  margin-right: $spacer;
+  position: relative;
+  top: 3px;
+  width: 18px;
+  outline: none;
+
+  &:checked, &:active {
+    background: $black;
+  }
+}
+
+// Checkboxes
+input[type=checkbox] {
+  appearance: none;
+  background: transparent;
+  height: 15px;
+  margin: 0;
+  position: relative;
+  top: 3px;
+  width: 15px;
+  padding: 2px;
+  border: $border-size solid $black;
+  opacity: 0.4;
+  outline: none;
+  &:checked {
+    background: transparent url("#{$image-path}/checkbox.svg") no-repeat 50% 50%;
+    background-size: 10px;
+    opacity: 1;
+  }
+}
+
+// Selects
+select {
+  appearance: none;
+  background: $white url("#{$image-path}/carat-down.svg") no-repeat 100% 50%;
+  border: none;
+  font-family: inherit;
   font-size: $base-font-size;
-}
-
-.button:hover {
-  background: $button-hover;
-}
-
-.button:active, .button:focus {
-  background: $button-hover;
-}
-
-.button[disabled="disabled"], .button:hover[disabled="disabled"] {
-  background: $button-inactive;
-  cursor: default;
-  opacity: 0.5;
+  font-weight: $normal;
+  outline: 0;
+  padding-right: 20px;
+  position: relative;
+  outline: none;
 }
 
 // Labels
-.form-group label, .form-group legend {
+.form-group label,
+.form-row label {
   display: block;
-  padding: 0 0 $spacer /2 0;
+  padding: 0 0 $spacer 0;
 }
 
-.form-group em {
-  font-style: italic;
+// Legends
+.form-group legend,
+.form-row legend  {
   display: block;
-  color: scale-color($base-font-colour, $lightness: 50%);
-  font-size: $base-font-size/1.25;
+  padding: 0 0 $spacer 0;
 }
 
-.form-group, .form-buttons {
-  padding: 0 $spacer;
-  margin: 0 0 $spacer * 2 0;
+.form-group em, .form-row em {
+  display: block;
+  font-size: $detail-font-size;
+  color: $grey2;
+  font-style: normal;
 }
 
-.form-group .required {
-  font-size: $base-font-size/1.25;
+.form-group, .form-row, .form-consent, .form-buttons {
+  margin: 0 0 $spacer2 0;
+  @media screen and (max-width: $small-screen) {
+    margin: 0 0 0 0;
+  }
+}
+
+.form-group .required span, .form-row .required span {
+  font-size: $detail-font-size;
 }
 
 .form-error {
   padding: $spacer;
-  background: scale-color($error, $lightness: 50%);
+  background: $error;
 }
 
 .form-error input[type=text] {
@@ -91,36 +212,5 @@ textarea {
 }
 
 .form-error span {
-  font-weight: bold;
-}
-
-// Radios and Checboxes
-label.radio-group, label.checkbox-group {
-  position: relative;
-  background: scale-color($input-border, $lightness: 75%);
-  border: $border-size solid scale-color($input-border, $lightness: 75%);
-  padding: $spacer $spacer * 2 $spacer $spacer * 3;
-  margin: 0 $spacer $spacer 0;
-  display: inline-block;
-  transition: all 0.2s ease-in-out;
-}
-
-.block-labels {
-  label.radio-group, label.checkbox-group {
-    float: left;
-    display: block;
-    clear: left;
-  }
-}
-
-label.radio-group:hover, label.radio-group.selected,
-label.checkbox-group:hover, label.checkbox-group.selected {
-  border: $border-size solid scale-color($input-border-focus, $lightness: 0%);
-}
-
-label.radio-group input[type=radio],
-label.checkbox-group input[type=checkbox] {
-  position: absolute;
-  top: 20px;
-  left: 15px;
+  font-weight: $bold;
 }

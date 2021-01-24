@@ -1,8 +1,7 @@
-// Colours - import base palette
+// Colours
 
-//@import "palettes/govuk-palette.scss";
-
-@import "palettes/tachyons-palette.scss";
+// Error and debug
+$debug: #fbf1a9;
 
 // Social network palette
 $facebook: #365397;
@@ -11,3 +10,30 @@ $youtube: #ff3333;
 $vimeo: #48b6ed;
 $pinterest: #ce1a19;
 $instagram: #cc2366;
+
+// Beige
+$theme-3: #ac8f77;
+$theme-2: #d5b49e;
+$theme-1: #efe7e7;
+
+// Accents
+$theme-red: #ce857e;
+$theme-purple: #bfa9c4;
+
+$theme-blue: #49b0e5;
+$theme-dark-blue: #205069;
+$theme-pink: #e7007c;
+
+
+// Black and white
+$black: #0d0d0d;
+$white: #fffef9;
+$offwhite: #efe7e7;
+
+// Grey Scale
+$grey1: #333333;
+$grey2: #4f4f4f;
+$grey3: #828282;
+$grey4: #bdbdbd;
+$grey5: #e0e0e0;
+$grey6: #f2f2f2;

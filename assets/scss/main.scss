@@ -1,10 +1,8 @@
 // Main CSS
-
 @import "settings/colours";
 @import "settings/global";
-
-@import "helpers/mixins";
-@import "helpers/grid";
+@import "settings/mixins";
+@import "settings/grid";
 
 @import "base/reset";
 @import "base/site";
@@ -21,11 +19,10 @@
 @import "components/tables";
 @import "components/blocks";
 
+@import "modules/modules";
+
 @import "templates/home";
 @import "templates/page";
 @import "templates/archive";
 @import "templates/search";
 @import "templates/single";
-@import "templates/readingroom";
-
-@import "base/ie";

@@ -1,10 +1,19 @@
-// Pixel widths
-$grid-measure-px: 105px;
-$grid-gap: 36px;
-$grid-max-width: 1656px;
+// Grid Layout
 
-$grid-measure: percentage($grid-measure-px / $site-max-width);
-$grid-gutter: percentage($grid-gap / $site-max-width);
+// 24 Columns / 1440px;
+// 1 Col = 4.1666666667%
+
+
+// Pixel widths
+$grid-measure-px: 60px;
+$grid-gutter-px: 0px;
+
+// Turn to percentage
+$grid-wrapper: $site-grid-width;
+$grid-gutter: percentage($grid-gutter-px / $site-grid-width);
+$grid-measure: percentage($grid-measure-px / $site-grid-width);
+
+$grid-gap: $grid-gutter;
 
 // Magic! Use like this: flex: 0 0 grid-width(8);
 @function grid-width($n) {
@@ -14,8 +23,10 @@ $grid-gutter: percentage($grid-gap / $site-max-width);
 @mixin unset-grid-layout {
   display: block;
   grid-template-columns: unset;
+  grid-template-rows: unset;
   grid-auto-rows: unset;
   grid-gap: unset;
+  grid-template-areas: unset;
 }
 
 @mixin unset-grid {
@@ -23,6 +34,7 @@ $grid-gutter: percentage($grid-gap / $site-max-width);
   grid-column: unset;
   grid-gap: unset;
   grid-row: unset;
+  grid-area: unset;
 }
 
 @mixin product-grid {
@@ -31,10 +43,6 @@ $grid-gutter: percentage($grid-gap / $site-max-width);
   grid-auto-rows: auto;
   grid-column-gap: $grid-gap;
   grid-row-gap: $grid-gap;
-  
-  // @media screen and (max-width: $large-screen) {
-  //   grid-template-columns: repeat(3, 1fr);
-  // }
   @media screen and (max-width: $small-screen) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -63,10 +71,4 @@ $grid-gutter: percentage($grid-gap / $site-max-width);
   @media screen and (max-width: $small-screen) {
     grid-template-columns: repeat(2, 1fr)
   }
-}
-
-@mixin layout-grid-mobile-header {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-column-gap: 0;
 }
