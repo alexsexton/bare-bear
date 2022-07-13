@@ -1,0 +1,4 @@
+# Ignore things #
+
+/assets/js/lib/*
+/static/lib/*
