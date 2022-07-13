@@ -26,17 +26,17 @@ function _bare_theme_scripts() {
   wp_deregister_style( 'wp-mediaelement' );
   // Deregister the wp-block-library block library styles
   wp_deregister_style( 'wp-block-library' );
+  // Dequeue guttenberg global styles - if using classic editor
+  wp_dequeue_style( 'global-styles' );
   // Deregister other plugin styles - customise as needed
   // Deregister the wc-block-style block library styles
   // wp_deregister_style( 'wc-block-style' );
   // Deregister the bogo library styles
-  //wp_deregister_style( 'bogo' );
+  // wp_deregister_style( 'bogo' );
 
   wp_enqueue_style('main-styles', get_template_directory_uri() . '/static/main.css', array(), $cache_buster );
 
-  wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/static/lib/modernizr.min.js', array(), false, false  );
-
-  wp_enqueue_script( 'jquery', get_template_directory_uri() . '/static/lib/jquery-3.3.1.min.js', array(), false, true  );
+  wp_enqueue_script( 'jquery', get_template_directory_uri() . '/static/lib/jquery-3.6.0.min.js', array(), false, true  );
 
   wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/static/main.js', array(), $cache_buster, true  );
 }
